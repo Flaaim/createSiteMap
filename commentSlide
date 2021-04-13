@@ -1,0 +1,21 @@
+$(document).ready(function () {
+var $slides = $(".answer_div").hide();
+$(".show_hide").show().click(function () {
+    var $slider = $(this).next(".answer_div");
+    if (!$slider.length) {
+        $slider = $(this).closest(".answer_div");
+    }
+    $slides.not($slider).stop(true, true).slideUp();
+    $slider.stop(true, true).slideToggle();
+});
+});
+
+
+<a href="#1" class="show_hide"><span>Reply</span></a>
+<div class="answer_div">
+<span class="answer_text">Reply</span><br><br>
+<form name="form" id="form" method="post" onsubmit="return validation()" action="/action_form.php?id=<?php echo $id; ?>">
+<textarea name="comment" id="comment" rows="4" class="comment_class"></textarea><br>
+<input class="submit" value="Submit" type="submit"/>
+</form>
+</div>
